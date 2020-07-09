@@ -16,4 +16,4 @@ storage_client = storage.Client()
 blobs = storage_client.list_blobs(bucket_name)
 for blob in blobs:
   print(blob.name)
-  blob.download_to_filename("./"+str(blob))
+  blob.download_to_filename("./"+str(blob.name))
