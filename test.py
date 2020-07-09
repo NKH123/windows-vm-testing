@@ -18,7 +18,8 @@ storage_client = storage.Client()
 blobs = storage_client.list_blobs(bucket_name)
 for blob in blobs:
   print(blob.name)
-  destination_path = Path(".\\" + blob.name)
+  cur_dir = os.getcwd()
+  destination_path = Path(cur_dir + blob.name)
   if destination_path.exists() is False:
       print("Destination path : ", destination_path)
       os.mkdir(destination_path)
