@@ -22,5 +22,5 @@ for blob in blobs:
   destination_path = Path(cur_dir + blob.name)
   if destination_path.exists() is False:
       print("Destination path : ", destination_path)
-      os.mkdir(destination_path)
+      os.mkdirs(destination_path)
   blob.download_to_filename(destination_path)
