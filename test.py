@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 from google.cloud import storage
 
 bucket_name = "automation-interns"
@@ -16,4 +18,7 @@ storage_client = storage.Client()
 blobs = storage_client.list_blobs(bucket_name)
 for blob in blobs:
   print(blob.name)
-  blob.download_to_filename("./"+str(blob.name))
+  destination_path = Path("./" + blob.name)
+  if destination_path.exists() is False:
+      os.mkdir(destination_path)
+  blob.download_to_filename(destination_path)
