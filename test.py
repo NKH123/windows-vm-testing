@@ -22,8 +22,9 @@ for blob in blobs:
   destination_file_path = Path(cur_dir + "/" + blob.name)
   destination_path = destination_file_path.parent
   if blob.name[len(blob.name)-1] == '/':
+  	print("Making directory Destination path : ", destination_path)
   	os.makedirs(destination_file_path, exist_ok=True)
-  elif destination_path.exists() is False:
-      print("Destination path : ", destination_path)
+  else:
+      print("Downloading file Destination path : ", destination_path)
       os.makedirs(destination_path, exist_ok=True)
       blob.download_to_filename(destination_file_path)
