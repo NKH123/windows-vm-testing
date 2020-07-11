@@ -15,7 +15,7 @@ bucket.list_blobs()
 
 
 storage_client = storage.Client()
-blobs = storage_client.list_blobs(bucket_name)
+blobs = storage_client.list_blobs(bucket_name, prefix="test/execute_macro/code/")
 for blob in blobs:
   print(blob.name)
   cur_dir = os.getcwd()
