@@ -19,12 +19,15 @@ blobs = storage_client.list_blobs(bucket_name, prefix="test/execute_macro/code/"
 for blob in blobs:
   print(blob.name)
   cur_dir = os.getcwd()
-  destination_file_path = Path(cur_dir + "/../execte/action/code/")
-  destination_path = destination_file_path.parent
+  destination_path = Path(cur_dir + "/../execte/action/code/")
+  # destination_file_path = Path(destination_file_path
   if blob.name[len(blob.name)-1] == '/':
   	print("Making directory Destination path : ", destination_path)
   	os.makedirs(destination_file_path, exist_ok=True)
   else:
       print("Downloading file Destination path : ", destination_path)
       os.makedirs(destination_path, exist_ok=True)
+      source = Path(blob.name)
+      destination_file_path = Path(destination_path + sorce.name)
+      print("Destination file path: ", destination_file_path)
       blob.download_to_filename(destination_file_path)
