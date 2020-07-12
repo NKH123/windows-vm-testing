@@ -28,6 +28,6 @@ for blob in blobs:
       print("Downloading file Destination path : ", destination_path)
       os.makedirs(destination_path, exist_ok=True)
       source = Path(blob.name)
-      destination_file_path = Path(str(destination_path) + str(source.name))
+      destination_file_path = Path(str(destination_path) + "\\" str(source.name))
       print("Destination file path: ", destination_file_path)
       blob.download_to_filename(destination_file_path)
