@@ -19,7 +19,7 @@ blobs = storage_client.list_blobs(bucket_name, prefix="test/execute_macro/code/"
 for blob in blobs:
   print(blob.name)
   cur_dir = os.getcwd()
-  destination_file_path = Path(cur_dir + "/" + blob.name)
+  destination_file_path = Path(cur_dir + "/../execte/action/code/")
   destination_path = destination_file_path.parent
   if blob.name[len(blob.name)-1] == '/':
   	print("Making directory Destination path : ", destination_path)
