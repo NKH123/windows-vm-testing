@@ -2,6 +2,10 @@ import os
 from pathlib import Path
 from google.cloud import storage
 
+
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/neerajd/Downloads/Credentials/mocha-vm-experiments-f0dfbba7f499.json" 
+
 bucket_name = "automation-interns"
 destination_file_name = ("./stuff.txt")
 source_blob_name = "stuff.txt"
